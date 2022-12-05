@@ -47,11 +47,12 @@ public class SelectMenuMultipleTest {
         multiSelectMenu.elementNowReady();
 
         // Check to see if the Menu is a Multiple Select menu
-        Assertions.assertEquals(true, multiSelectMenu.isMultipleSelect());
 
         System.out.println("SelectMenuIsMultipleTest()");
         System.out.println("Expected: " + true);
         System.out.println("Actual:   " + multiSelectMenu.isMultipleSelect());
+
+        Assertions.assertEquals(true, multiSelectMenu.isMultipleSelect());
     }
 
     // How many options does the Select have Test
@@ -64,11 +65,13 @@ public class SelectMenuMultipleTest {
 
         // Get the number of options
         int options = multiSelectMenu.getNumberOfOptions();
-        Assertions.assertEquals(5, options);
 
+        // Check the number of options
         System.out.println("SelectMenuOptionNumberTest()");
         System.out.println("Expected: " + "5");
         System.out.println("Actual:   " + options);
+
+        Assertions.assertEquals(5, options);
     }
 
     // Select multiple values
@@ -90,11 +93,13 @@ public class SelectMenuMultipleTest {
 
         WebElement outputMessage = new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("selectMenuOutput")));
-        Assertions.assertEquals("You selected some stuff: Red Yellow", outputMessage.getText());
 
+        // Test the output
         System.out.println("SelectMultipleOptions()");
         System.out.println("Expected: " + "You selected some stuff: Red Yellow");
         System.out.println("Actual:   " + outputMessage.getText());
+
+        Assertions.assertEquals("You selected some stuff: Red Yellow", outputMessage.getText());
     }
 
     // Select and deselect multiple values
@@ -113,12 +118,12 @@ public class SelectMenuMultipleTest {
 
         // Check that there are no selections
         List<WebElement> selectedOptionList = multiSelectMenu.getMultiSelections();
-        Assertions.assertEquals(0, selectedOptionList.size());
-
 
         System.out.println("DeselectMultipleOptions()");
         System.out.println("Expected: " + "0");
         System.out.println("Actual:   " + selectedOptionList.size());
+
+        Assertions.assertEquals(0, selectedOptionList.size());
     }
 
     // Close the driver after each test

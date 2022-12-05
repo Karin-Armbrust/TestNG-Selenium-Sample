@@ -45,11 +45,12 @@ public class SelectMenuSingleTest {
         singleSelectMenu.elementNowReady();
 
         // Check to see if the Menu is a Multiple Select menu
-        Assertions.assertEquals(false, singleSelectMenu.isMultipleSelect());
 
         System.out.println("SelectMenuIsMultipleTest()");
         System.out.println("Expected: " + false);
         System.out.println("Actual:   " + singleSelectMenu.isMultipleSelect());
+
+        Assertions.assertEquals(false, singleSelectMenu.isMultipleSelect());
     }
 
         // Check the number of options
@@ -63,11 +64,12 @@ public class SelectMenuSingleTest {
         int options = singleSelectMenu.getNumberOfOptions();
 
         // Ensure the result is 5
-        Assertions.assertEquals(5, options);
 
         System.out.println("SelectMenuSingleOptionNumberTest()");
         System.out.println("Expected: " + "5");
         System.out.println("Actual:   " + options);
+
+        Assertions.assertEquals(5, options);
     }
 
     // A Test that selects several values but expects only the last one to persist
@@ -86,12 +88,14 @@ public class SelectMenuSingleTest {
            .until(ExpectedConditions.presenceOfElementLocated(By.id("selectMenuOutput2")));
 
         // Ensure Train was selected
-        Assertions.assertEquals("You selected some stuff: Train",
-                outputMessage.getText());
+
 
         System.out.println("SelectOneValue()");
         System.out.println("Expected: " + "You selected some stuff: Train");
         System.out.println("Actual:   " + outputMessage.getText());
+
+        Assertions.assertEquals("You selected some stuff: Train",
+                outputMessage.getText());
     }
 
     // Close the driver after each test

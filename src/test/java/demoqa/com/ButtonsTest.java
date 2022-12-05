@@ -69,10 +69,6 @@ public class ButtonsTest {
         // Wait until the the success message comes up
         WebElement successMessage = new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("buttonOutput2")));
-        assertEquals(successMessage.getText(), "");
-        assertFalse(buttonTwo.isEnabled());
-        assertFalse(buttonThree.isEnabled());
-        assertFalse(buttonFour.isEnabled());
 
         System.out.println("ButtonSynchonizingTest()");
         System.out.println("Expected Output: ");
@@ -83,6 +79,13 @@ public class ButtonsTest {
         System.out.println("ButtonThree Enabled Actual: " + buttonThree.isEnabled());
         System.out.println("ButtonFour Enabled Expected: false");
         System.out.println("ButtonFour Enabled Actual: " + buttonFour.isEnabled());
+
+        assertEquals(successMessage.getText(), "");
+        assertFalse(buttonTwo.isEnabled());
+        assertFalse(buttonThree.isEnabled());
+        assertFalse(buttonFour.isEnabled());
+
+
     }
     // Double Click Test
     @Test(priority = 1)
